@@ -22,7 +22,6 @@ public class PermutationTest {
 				permutation(cnt+1); // 다음자리 순열 뽑으라고 보낸다.
 				isSelected[i] = false;
 			}
-				
 		}
 	}
 	

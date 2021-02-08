@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class SWEA_1218_Bracket {
+public class SWEA_1218_°ýÈ£Â¦Áþ±â {
 
 	static char[] arr;
 	static HashMap<Character,Character> bracket;

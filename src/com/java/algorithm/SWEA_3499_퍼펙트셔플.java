@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class SWEA_3499_ÆÛÆåÆ®¼ÅÇÃ {
+public class SWEA_3499_í¼í™íŠ¸ì…”í”Œ {
 	static Queue<String> left;
 	static Queue<String> right;
 	static Queue<String> result;

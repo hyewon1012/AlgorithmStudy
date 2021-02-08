@@ -6,11 +6,11 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Stack;
 
-public class SWEA_1223_°è»ê±â2 {
+public class SWEA_1223_ê³„ì‚°ê¸°2 {
 	static Stack<Character> midStack;
 	static Stack<Integer> postfixStack;
-	//ÀÔ·Â°ª ¿ì¼±¼øÀ§°¡ ´õ ³ôÀ¸¸é true
-	//³·°Å³ª °°À¸¸é false
+	//ì…ë ¥ê°’ ìš°ì„ ìˆœìœ„ê°€ ë” ë†’ìœ¼ë©´ true
+	//ë‚®ê±°ë‚˜ ê°™ìœ¼ë©´ false
 	public static boolean check(char input, char top) {
 		if(input == '*' && top != '*') return true;
 		else if(input == '+' && top == '*') return false;
@@ -30,9 +30,9 @@ public class SWEA_1223_°è»ê±â2 {
 			midStack = new Stack<>();
 			mid = br.readLine().toCharArray();
 			int idx = 0;
-			//ÁßÀ§Ç¥±â½Ä ÈÄÀ§Ç¥±â½ÄÀ¸·Î º¯È¯
+			//ì¤‘ìœ„í‘œê¸°ì‹ í›„ìœ„í‘œê¸°ì‹ìœ¼ë¡œ ë³€í™˜
 			for (int i = 0; i < N; i++) {
-				if(mid[i] != '+' && mid[i] != '*') { //ÇÇ¿¬»êÀÚÀÏ¶§
+				if(mid[i] != '+' && mid[i] != '*') { //í”¼ì—°ì‚°ìì¼ë•Œ
 					result[idx++] = mid[i];
 					
 				}else {
@@ -53,7 +53,7 @@ public class SWEA_1223_°è»ê±â2 {
 			}
 			
 			
-			//ÈÄÀ§Ç¥±â½Ä °è»ê
+			//í›„ìœ„í‘œê¸°ì‹ ê³„ì‚°
 			postfixStack = new Stack<>();
 			for (int i = 0; i < result.length; i++) {
 				if(result[i] != '*' && result[i] != '+') {
