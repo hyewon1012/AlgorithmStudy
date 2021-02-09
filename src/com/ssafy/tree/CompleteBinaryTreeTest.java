@@ -10,8 +10,9 @@ public class CompleteBinaryTreeTest {
 			tree.add((char)(65+i)); // 알파벳 대문자
 		}
 		
-		tree.bfs();
-
+		//tree.bfs();
+		//tree.bfs2();
+		tree.dfs(1);
 	}
 
 }
