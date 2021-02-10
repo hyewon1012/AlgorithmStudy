@@ -12,6 +12,7 @@ public class SWEA_1974 {
 	
 	private static int[][] map;
 	static boolean[] flag = new boolean[10];
+	
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
