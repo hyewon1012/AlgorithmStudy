@@ -44,7 +44,7 @@ public class BAEKJOON_14503_로봇청소기 {
 		while(!q.isEmpty()) {
 			Pos now = q.poll();
 			
-			int cleanCnt=0;
+			int cleanCnt=0; // 탐색 카운트
 			int nowY = now.y;//현재y
 			int nowX = now.x;//현재x
 			int nowDir = now.dir;//현재방향
