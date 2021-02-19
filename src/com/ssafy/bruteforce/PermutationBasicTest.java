@@ -20,8 +20,6 @@ public class PermutationBasicTest {
 			input[i] = sc.nextInt();
 		}
 		permutation(0);
-		
-
 	}
 	
 	private static void permutation(int cnt) {

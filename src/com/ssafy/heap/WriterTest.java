@@ -33,7 +33,7 @@ public class WriterTest {
 			}
 		});
 		
-		//3. 람다로 정렬 기준 추가
+		//3. 람다로 나이 정렬 기준 추가
 		Collections.sort(list, (o1,o2) -> {
 			int age = o1.age - o2.age;
 			if(age==0) {
@@ -41,6 +41,10 @@ public class WriterTest {
 			}
 			return age;
 		});
+		//2021.02.19 - 람다로 정렬 기준 만들기
+		//Collections.sort(list, (o1,o2) -> o1.age - o2.age);
+		//Collections.sort(list, (o1,o2) -> o1.title.compareTo(o2.title));
+		
 		for (Writer w : list) {
 			System.out.println(w);
 		}
