@@ -17,7 +17,7 @@ public class Baekjoon_1987_¾ËÆÄºª {
 	static int[] dy = {-1,1,0,0};
 	static int[] dx = {0,0,-1,1};
 	static int R,C;
-	static HashMap<Character, Integer> alphabet;
+	static HashMap<Character, Boolean> alphabet;
 	static int ans;
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -34,35 +34,47 @@ public class Baekjoon_1987_¾ËÆÄºª {
 			}
 		}
 		
-		alphabet = new HashMap<Character, Integer>();
-		ans = Integer.MIN_VALUE;
-		dfs(0,0,1);
-		System.out.println(ans);
+		alphabet = new HashMap<Character, Boolean>();
+		for (int i = 65; i <= 90; i++) {
+			alphabet.put((char)i, false);
+		}
+		
+		
+		System.out.println(dfs(0,0,0));
 		
 	}
 
-	public static void dfs(int y, int x, int cnt) {
-		if(alphabet.get(map[y][x]) != null) {
-			ans = Math.max(ans, cnt);
-			return;
-		}else {
-			alphabet.put(map[y][x], 1);
+	public static int dfs(int y, int x, int cnt) {
+//		if(alphabet.get(map[y][x])) {
+//			System.out.println(y+" , "+x);
+//			ans = Math.max(ans, cnt);
+//			return;
+//		}else {
+//			alphabet.put(map[y][x], true);
+//		}
+		int result = cnt;
+		if(visited[y][x] || alphabet.get(map[y][x])) {
+			return cnt;
 		}
-		
 		for (int i = 0; i < 4; i++) {
 			int ny = y + dy[i];
 			int nx = x + dx[i];
 			if(ny < 0 || ny >= R || nx < 0 || nx >= C) continue;
-			if(!visited[ny][nx]) {
+
+			if(!visited[ny][nx] && !alphabet.get(map[ny][nx])) {
 				visited[ny][nx] = true;
-				dfs(ny,nx,cnt++);
+				alphabet.put((char)map[ny][nx], true);
+				
+				result = Math.max(result, dfs(ny,nx,cnt++));
+				
 				visited[ny][nx] = false;
+				alphabet.put((char)map[ny][nx], false);
+				
 			}
 			
 		}
 		
-		
-		
+		return result;
 	}
 
 }

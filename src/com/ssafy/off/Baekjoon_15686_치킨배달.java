@@ -6,22 +6,8 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.StringTokenizer;
-class Home{
-	int y;
-	int x;
-	public Home(int y, int x) {
-		this.y = y;
-		this.x = x;
-	}
-}
-class Chiken{
-	int y;
-	int x;
-	public Chiken(int y, int x) {
-		this.y = y;
-		this.x = x;
-	}
-}
+
+
 
 public class Baekjoon_15686_치킨배달 {
 /**
@@ -35,8 +21,7 @@ public class Baekjoon_15686_치킨배달 {
 	static ArrayList<Chiken> chiken;
 	static ArrayList<Home> home;
 	static ArrayList<Chiken> selected;
-	static int[] result;
-	static boolean[] visited;
+	static int[] flag;
 	
 	static int ans;
 	public static void main(String[] args) throws NumberFormatException, IOException {
@@ -60,45 +45,53 @@ public class Baekjoon_15686_치킨배달 {
 				}
 			}
 		}
-		visited = new boolean[R];
-		ans = Integer.MAX_VALUE;
-		for (int i = 1; i <= R; i++) {
-			
-			solve(0,i,0);
+		//치킨집 R개
+		//폐업시키지 않을 치킨집 0개 1개 2개 -> 운영 하는 치킨집개수 1,2,.. 최대 R개
+		int dist = Integer.MAX_VALUE; //모든 최소 치킨거리
+		for (int i = 1; i <= chiken.size(); i++) {
+			int cnt = 0;
+			flag = new int[i];
+			while(++cnt <= i) flag[i-cnt]=1;
+			do {
+				int distSum = 0; // 조합마다 나오는 치킨거리
+				for (int j = 0; j <= i; j++) {
+					int singleDistance = Integer.MAX_VALUE;
+					if(flag[j]==1) {
+						//구현
+						for (Home h : home) {
+							singleDistance = Math.min(singleDistance, Math.abs(h.y-chiken.get(j).y) + Math.abs(h.x-chiken.get(j).x));
+						}
+					}
+					distSum += singleDistance;
+				}
+				dist = Math.min(dist, distSum);
+			}while(np());
 		}
-		System.out.println(ans);
+		System.out.println(dist);
 		
 	}
-	private static void solve(int cnt, int size, int idx) {
-		if(cnt == size) {
-			System.out.println("크기 "+cnt);
-			for (Chiken c : selected) {
-				System.out.println(c.y + " " + c.x);
-			}
-			//구현
-			int dist = Integer.MAX_VALUE;
-			for (int i = 0; i < home.size(); i++) {
-				int hy = home.get(i).y;
-				int hx = home.get(i).x;
-				for (int j = 0; j < selected.size(); j++) {
-					int cy = chiken.get(j).y; 
-					int cx = chiken.get(j).x;
-					dist = Math.min(dist, (Math.abs(hy-cy)+Math.abs(hx-cx)));
-				}
-			}
-			ans = Math.min(ans, dist);
-			return;
-		}
-		for (int i = idx; i < chiken.size(); i++) {
-			if(!visited[i]) {
-				visited[i] = true;
-				selected.add(chiken.get(i));
-				solve(cnt+1, size, idx+1);
-				visited[i] = false;
-				selected.remove(chiken.get(i));
-			}
-		}
+	
+	public static boolean np() {
+		int i = chiken.size()-1;
+		while(i > 0 && flag[i-1] >= flag[i] ) --i;
 		
+		if(i==0) return false;
+		
+		int j = chiken.size()-1;
+		while(flag[i-1] >= flag[j]) --j;
+		swap(i-1, j);
+		
+		int k = chiken.size()-1;
+		while(i < k) {
+			swap(i++, k--);
+		}
+		return true;		
+	}
+	
+	private static void swap(int i, int j) {
+		int temp = flag[i];
+		flag[i] = flag[j];
+		flag[j] = temp;
 	}
 
 }
