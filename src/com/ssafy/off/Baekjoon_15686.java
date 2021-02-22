@@ -6,22 +6,6 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-class Home{
-	int y;
-	int x;
-	public Home(int y, int x) {
-		this.y = y;
-		this.x = x;
-	}
-}
-class Chiken{
-	int y;
-	int x;
-	public Chiken(int y, int x) {
-		this.y = y;
-		this.x = x;
-	}
-}
 
 public class Baekjoon_15686 {
 	
