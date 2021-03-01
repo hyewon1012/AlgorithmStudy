@@ -58,7 +58,7 @@ public class Baekjoon_1018_체스판다시칠하기 {
 		}
 		System.out.println(ans);
 	}
-	
+	/*
 	private static void solve(int i, int j) {
 		
 		//divide
@@ -108,6 +108,7 @@ public class Baekjoon_1018_체스판다시칠하기 {
 		}
 		ans = ans < cnt ? ans : cnt;
 	}
+	*/
 	
 	private static int coloring(int y, int x) {
 		if(y+8 > R || x + 8 > C) return Integer.MAX_VALUE;

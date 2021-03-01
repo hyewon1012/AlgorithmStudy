@@ -11,6 +11,7 @@ public class Baekjoon_10158_개미 {
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
 		String[] info = br.readLine().split(" ");
 		int W = Integer.parseInt(info[0]);
 		int H = Integer.parseInt(info[1]);
@@ -55,8 +56,8 @@ public class Baekjoon_10158_개미 {
 		}else { //아래로 내려감
 			q = H - ((y+t) % H);
 		}
-		
-		System.out.println(p + " " + q);
+		sb.append(p).append(" ").append(q);
+		System.out.println(sb);
 	}
 
 }

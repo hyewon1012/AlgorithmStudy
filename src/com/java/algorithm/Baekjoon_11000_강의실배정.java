@@ -9,7 +9,8 @@ import java.util.List;
 import java.util.PriorityQueue;
 /**
  * 최소의 강의실을 사용해 모든 수업을 가능하게 배정
- * 우선순위 큐 -> 종료 시각 빠른순
+ * 시작시간빠른순 정렬해주고 종료시각이 강의실을 배정함.
+ * 종료 시각 빠른순 -> 우선순위큐
  * */
 class Class {
 	int start;
