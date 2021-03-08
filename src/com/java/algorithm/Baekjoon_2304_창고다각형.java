@@ -8,23 +8,13 @@ import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
 
-class HeightInfo{
-	int x;
-	int y;
-	public HeightInfo(int x, int y) {
-		this.x = x;
-		this.y = y;
-	}
-}
 public class Baekjoon_2304_창고다각형 {
 	static int N;
-	static List<HeightInfo> height;
 	static int[] h;
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		N = Integer.parseInt(br.readLine());
-		height = new ArrayList<HeightInfo>();
 		h = new int[1001];
 		
 		int maxIdx = 1;
