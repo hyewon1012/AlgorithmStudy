@@ -16,11 +16,13 @@ public class BOJ_1759_암호만들기 {
 		L = Integer.parseInt(st.nextToken()); // 암호 길이
 		C = Integer.parseInt(st.nextToken()); // 암호 종류
 		
-		String[] str = br.readLine().split(" ");
+		//String[] str = br.readLine().split(" ");
+		st = new StringTokenizer(br.readLine());
 		password = new char[C];
 		result = new char[C];
 		for (int i = 0; i < C; i++) {
-			password[i] = str[i].charAt(0);
+			//password[i] = str[i].charAt(0);
+			password[i] = st.nextToken().charAt(0);
 		}
 		Arrays.sort(password);
 		solve(0,0,0,0);
