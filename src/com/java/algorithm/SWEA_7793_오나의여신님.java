@@ -100,5 +100,48 @@ go:			while(!q.isEmpty()) {
 		System.out.print(sb);
 
 	}
+	/*
+	static void bfs() {
+		int turn = 1;
+		while (!points.isEmpty()) {
+			// 초마다 현재 queue 사용하기...
+			int size = points.size();
+			while (size-- > 0) {
+				Point head = points.poll();
+
+				// 자식 탐색 한다.
+				for (int d = 0; d < deltas.length; d++) {
+					int nr = head.r + deltas[d][0];
+					int nc = head.c + deltas[d][1];
+
+					if (isIn(nr, nc)) {
+						// 지금 녀석이 악마라면.. 다음으로 이동은 .과 S
+						if (head.isDevil) {
+							if (map[nr][nc] == '.' || map[nr][nc] == 'S') {
+								map[nr][nc] = '*'; // 방문처리
+								points.offer(new Point(nr, nc, true));
+							}
+						}
+						// 지금 녀석이 수연이라면.. . 또는 D (여신 - 만나면 종료)
+						else {
+							if (map[nr][nc] == 'D') {
+								A = turn;
+								return;
+							} else if (map[nr][nc] == '.') {
+								map[nr][nc] = 'S';
+								points.offer(new Point(nr, nc, false));
+							}
+						}
+					}
+				}
+			}
+			turn++;
+		}
+	}
+
+	static boolean isIn(int r, int c) {
+		return 0 <= r && r < R && 0 <= c && c < C;
+	}
+	*/
 
 }
