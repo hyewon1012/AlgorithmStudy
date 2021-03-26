@@ -91,66 +91,66 @@ public class BOJ_마법사상어와파이어볼_20056 {
 	} // end of main
 	
 	//모든 파이어볼 명령어 한번씩 수행
-	private static void move() {
-		
-		for (Fireball ele : pos) {
-			//음수나올때
-//			int ny = ele.y + (dy[ele.d]*(ele.s%N))%N;
-//			int nx = ele.x + (dx[ele.d]*(ele.s%N))%N;
-			int ny = (ele.y + dy[ele.d]*(ele.s%N))%N;
-			int nx = (ele.x + dx[ele.d]*(ele.s%N))%N;
-//			if(ny >= N) {
-//				ny = ny-N;
-//			}else if(ny < 0) {
-//				ny = ny + N;
+//	private static void move() {
+//		
+//		for (Fireball ele : pos) {
+//			//음수나올때
+////			int ny = ele.y + (dy[ele.d]*(ele.s%N))%N;
+////			int nx = ele.x + (dx[ele.d]*(ele.s%N))%N;
+//			int ny = (ele.y + dy[ele.d]*(ele.s%N))%N;
+//			int nx = (ele.x + dx[ele.d]*(ele.s%N))%N;
+////			if(ny >= N) {
+////				ny = ny-N;
+////			}else if(ny < 0) {
+////				ny = ny + N;
+////			}
+////			if(nx >= N) {
+////				nx = nx-N;
+////			}else if(nx < 0) {
+////				nx = nx + N;
+////			}
+//			ele.y = ny;
+//			ele.x = nx;
+//			map[ny][nx].add(ele);
+//		}
+//		
+//		//같은좌표에 있는 파이어볼 번호 -> 어덯게 찾아주지?
+//		for (int i = 0; i < N; i++) {
+//			for (int j = 0; j < N; j++) {
+//				if(map[i][j].size() > 1) {
+//					//합치기
+//					int s_sum=0, m_sum = 0;
+//					boolean even = true;
+//					boolean odd = true;
+//					for (Fireball fb : map[i][j]) {
+//						m_sum += fb.m;
+//						s_sum += fb.s;
+//						//방향 모두 홀수 or 모두 짝수 - > 0246 아니면 1357
+//						if(fb.d % 2 == 0) odd = false;
+//						if(fb.d % 2 == 1) even = false;
+//						
+//					}
+//					int new_m = m_sum / 5;
+//					int new_s = s_sum / map[i][j].size();
+//					map[i][j].clear();//합쳐진얘들은 원래있던 좌표에서 다 사라지게
+//					if(new_m > 0) {
+//						//추가
+//						for (int k = 0; k < 4; k++) {
+//							if(odd || even) {
+//								map[i][j].add(new Fireball(i, j, new_m, new_s, k*2));
+//							}else {
+//								map[i][j].add(new Fireball(i, j, new_m, new_s, k*2+1));
+//							}
+//						}
+//						
+//					}
+//					
+//				}
+//				
 //			}
-//			if(nx >= N) {
-//				nx = nx-N;
-//			}else if(nx < 0) {
-//				nx = nx + N;
-//			}
-			ele.y = ny;
-			ele.x = nx;
-			map[ny][nx].add(ele);
-		}
-		
-		//같은좌표에 있는 파이어볼 번호 -> 어덯게 찾아주지?
-		for (int i = 0; i < N; i++) {
-			for (int j = 0; j < N; j++) {
-				if(map[i][j].size() > 1) {
-					//합치기
-					int s_sum=0, m_sum = 0;
-					boolean even = true;
-					boolean odd = true;
-					for (Fireball fb : map[i][j]) {
-						m_sum += fb.m;
-						s_sum += fb.s;
-						//방향 모두 홀수 or 모두 짝수 - > 0246 아니면 1357
-						if(fb.d % 2 == 0) odd = false;
-						if(fb.d % 2 == 1) even = false;
-						
-					}
-					int new_m = m_sum / 5;
-					int new_s = s_sum / map[i][j].size();
-					map[i][j].clear();//합쳐진얘들은 원래있던 좌표에서 다 사라지게
-					if(new_m > 0) {
-						//추가
-						for (int k = 0; k < 4; k++) {
-							if(odd || even) {
-								map[i][j].add(new Fireball(i, j, new_m, new_s, k*2));
-							}else {
-								map[i][j].add(new Fireball(i, j, new_m, new_s, k*2+1));
-							}
-						}
-						
-					}
-					
-				}
-				
-			}
-		}
-		
-	}
+//		}
+//		
+//	}
 	
 	static class Fireball{
 		int y,x,m,s,d; // y x 질량 속력 방향
