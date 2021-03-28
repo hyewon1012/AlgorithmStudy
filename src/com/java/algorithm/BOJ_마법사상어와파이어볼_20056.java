@@ -14,7 +14,6 @@ public class BOJ_마법사상어와파이어볼_20056 {
 	static int[] dy = {-1, -1, 0, 1, 1, 1, 0, -1};
 	static int[] dx = {0, 1, 1, 1, 0, -1, -1, -1};
 	
-	static List<Fireball> pos = new ArrayList<Fireball>(); // 파이어볼 정보 리스트
 	static Queue<Fireball> queue;
 	static int[] deltaSetA = {0,2,4,6}, deltaSetB = {1,3,5,7};
 	static Fireball[][] map;

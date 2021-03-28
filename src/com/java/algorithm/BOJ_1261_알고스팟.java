@@ -59,9 +59,9 @@ public class BOJ_1261_알고스팟 {
 			int size = pq.size();
 			while(size-- > 0) {
 				Pos now = pq.poll();
-				//2. 사용하기
+				
 				if(visited[now.r][now.c]) continue;
-				visited[now.r][now.c] = true; // SWEA 방향전환문제랑 다르게 밖에 다 방문체크한 이유 ?
+				visited[now.r][now.c] = true;
 				
 				if(now.r == R-1 && now.c == C-1) {
 					return now.cnt;
