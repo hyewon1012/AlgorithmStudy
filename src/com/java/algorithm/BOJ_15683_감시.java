@@ -65,26 +65,29 @@ public class BOJ_15683_감시 {
 	//cctv 90도 회전시켜서 0이 최소가 되게
 	private static void rotate(int cnt) {
 		if(cnt == cctvs.size()) {
-			
-			for (int i = 0; i < R; i++) {
-				for (int j = 0; j < C; j++) {
-					System.out.print(copymap[i][j]+" ");
-				}
-				System.out.println();
-			}
-			System.out.println();
-			//사각지대 검사
+			//사각지대 영역 검사
 			int total = check();
-			ans = Math.min(ans, total);
+			if(total < ans) {
+				ans = total; // 최소값갱신
+//				for (int i = 0; i < R; i++) {
+//					for (int j = 0; j < C; j++) {
+//						System.out.print(copymap[i][j]+" ");
+//					}
+//					System.out.println();
+//				}
+//				System.out.println();
+//				System.out.println(ans);
+			}
+			
 			return;
 		}
 		int y = cctvs.get(cnt).y;
 		int x = cctvs.get(cnt).x;
 		int num = cctvs.get(cnt).num;
 		for (int i = 0; i < dirs[num].length; i++) {
-			setCCTV(y,x,dirs[num][i],9); // cctv 켜기
+			setCCTV(y,x,dirs[num][i],1); // cctv 켜기
 			rotate(cnt+1);
-			setCCTV(y,x,dirs[num][i],0); // cctv 끄기
+			setCCTV(y,x,dirs[num][i],-1); // cctv 끄기
 		}
 
 	}
@@ -99,8 +102,7 @@ public class BOJ_15683_감시 {
 					nx += dx[k];
 					if(ny >= R || ny < 0 || nx >= C || nx < 0) break;
 					if(copymap[ny][nx] == 6) break;
-					
-					copymap[ny][nx] = val;
+					copymap[ny][nx] += val;
 				}
 			}
 		}
